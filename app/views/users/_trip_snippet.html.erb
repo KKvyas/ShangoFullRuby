@@ -1,0 +1,14 @@
+<div class="row trip-item">
+	<li>
+		<p><%= t.trip_date.date_range %></p>
+			<div><%= image_tag t.trip.activity.icon.url(:thumb) %></div>
+			<div>
+				<p>
+					<%=t.trip.tag_line.downcase.capitalize %>
+				</p>
+				<p>
+					View all trip details <%= link_to 'here', '#' %>.
+				</p>
+			</div>
+	</li>
+</div>

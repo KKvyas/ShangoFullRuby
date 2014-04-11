@@ -1,0 +1,112 @@
+<% provide(:title, "Trip purchase") %>
+
+<section class="scaffold">
+
+	<section id="payment-details">
+		<div class="row">
+			<%= form_for(@user) do |f| %>
+				<div class="main">
+					<div class="row">
+						Confirm your account details.
+					</div>
+					<div class="row">
+						<%= f.text_field :email, :placeholder => "your account email" %>
+					</div>
+					<div class="row">
+						<%= f.password_field :password, :placeholder => "your account password" %>
+					</div>
+					<div class="row">
+						Enter your credit card or debit card information.
+					</div>
+					<div class="row">
+						<%= text_field_tag :name, nil, name: nil, :placeholder => "name on card" %>
+					</div>
+					<div class="row">
+						<%= text_field_tag :card_number, nil, name: nil, :placeholder => "card number" %>
+					</div>
+					<div class="row">
+						
+					</div>
+					<div class="row">
+						Card expires 
+						<%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+						<%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+					</div>
+					<div class="row">
+						<%= text_field_tag :card_code, nil, name: nil, :placeholder => "ccv" %>
+					</div>
+				</div>
+			<% end %>
+
+			<div class="sidebar-right">
+				<div class="row summary">
+					<div class="pull-left">
+						Order Summary
+					</div>
+					<div class="pull-right">
+						<!-- nothing -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="pull-left">
+						Services
+					</div>
+					<div class="pull-right">
+						$<%= current_user.services_total %>.00
+					</div>
+				</div>
+				<div class="row">
+					<div class="pull-left">
+						Taxes
+					</div>
+					<div class="pull-right">
+						$<%= current_user.taxes_total %>.00
+					</div>
+				</div>
+				<div class="row total">
+					<div class="pull-left">
+						Total
+					</div>
+					<div class="pull-right">
+						$<%= current_user.order_total %>.00
+					</div>
+				</div>
+				<div class="row">
+					<%= render 'form' %>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<section id="order-review">
+		<div class="review">
+			<div class="row divider"></div>
+			<h2>Order details<span class="h2-comment"> <%= link_to 'edit', cart_path %></span></h2>
+			<em>All trip details will be emailed to you upon purchase</em>
+			<h4>You are purchasing <%= pluralize(@order_items.count, 'trip') %>.</h4>
+			<ol>
+			<% @order_items.each do |i| %>
+				<div class="order-item">
+					<li>
+						<div class="row">
+							<%= i.trip_date.date_range + ", in " + i.trip.location.description  %>
+						</div>
+						<div class="row">
+							<%= trip_summary(i) %>, for <%= pluralize(i.number_of_people, 'person') %>.
+						</div>
+						<div class="row">
+							Your guide will be <%= i.trip.guide.user.full_name %>.
+						</div>
+						<div class="row">
+							Total cost: $<%= i.total %>.00
+						</div>
+					</li>
+				</div>
+			<% end %>
+			</ol>
+		</div>
+	</section>
+
+</section>

@@ -1,0 +1,74 @@
+<% provide(:title, current_user.full_name) %>
+
+<div class="pure-g-r">
+	<div class="pure-u-1-8">
+		&nbsp;
+	</div>
+
+	<div class="pure-u-3-8">
+		<div class="row">
+			<% if @user.guide? %>
+				<%= render partial: "guide_panel" %>
+			<% else %>
+				<%= render partial: "client_panel" %>
+			<% end %>
+		</div>
+		<div class="row">
+			<%= link_to 'Browse for trips', home_path %>
+		</div>
+	</div>
+
+	<div class="pure-u-3-8">
+		<div class="row">
+			<h3>Account information <span class="h3-small"><%= link_to 'edit', edit_user_path(@user) %></span></h3>
+
+
+			<!-- Guide In Waiting Section -->
+			<% if @user.guide_in_waiting? %>
+				<div class="row">
+					Your guide profile has been submitted. To be a coElevation guide, you need to be linked to a company, even if that's just you.
+				</div>
+			<% end %>
+
+			<!-- Standard section -->
+			<div class="row">
+				<strong>Name:</strong>
+				<%= @user.full_name %>
+			</div>
+
+			<div class="row">
+				<strong>Email:</strong>
+				<%= @user.email %>
+			</div>
+
+			<div class="row">
+				<strong>Phone:</strong>
+				<%= phone_format(@user.phone) %>
+			</div>
+
+			<% if @user.full_address? %>
+				<div class="row">
+					<strong>Address:</strong>
+					<%= @user.full_address %>
+				</div>
+			<% end %>
+
+			<% unless @user.profile_complete? %>
+				<div class="row">
+					<strong>Profile incomplete:</strong> Get ready for your trips <%= link_to 'here', edit_user_path(@user) %>.
+				</div>
+			<% end %>
+
+		</div>
+	</div>
+
+	<div class="pure-u-1-8">
+		&nbsp;
+	</div>
+</div>
+
+<section> <!-- above sections bleed into footer without this. can't figure out why -->
+	<div class="row">
+	</div>
+</section>
+

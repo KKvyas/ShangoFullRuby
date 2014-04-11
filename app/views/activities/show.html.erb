@@ -1,0 +1,71 @@
+<section id="offerings" class="content">
+    <div class="pure-g-r grid-centered">
+    	<div class="row">
+	        <div class="pure-u-1-3">
+	        	<div class="offering-pic">
+	       			<%= image_tag @activity.icon.url%>
+	            </div>
+	            <div id="slideshow" class="is-center">
+	            	<% @activity.images.order("RANDOM()").first(4).each do |i| %>
+	            		<div class="small-square">
+	            			<%= image_tag i.asset.url(:thumb) %>
+	        			</div>
+	            	<% end %>
+	            	<br /><%= link_to 'More pictures', "#" %>
+	            </div>
+	        </div>
+	        <div class="pure-u-2-3">
+	        	<div class="offering-description">
+	        		<h2><%= @activity.title %></h2>
+	                <p><%= @activity.description %></p>
+	            </div>
+	            <div class="row">
+		            Location: Near Denver, CO.
+	            </div>
+	            <div class="row">
+		            Prices:
+		            <ul>
+		            	<li>Half day starting at: </li>
+		            	<li>Full day starting at: </li>
+		            </ul>
+	            </div>
+	            <div class="row">
+		            Difficulty: Pick a difficulty that suits you. All experience levels welcome!
+	            </div>
+	            <div class="row">
+		        	When: Trips running from *earliest date* to *latest date*
+	            </div>
+	            <div class="row">
+	            	<%= link_to "#" do %>
+	                	<button class="pure-button">Customize your trip</button>
+	                <% end %>
+	            </div>
+
+	            <div id="difficulty-selection" class="row">
+	                <button class="pure-button"><%= Difficulty.find_by(id:1).description %></button>
+	                <button class="pure-button"><%= Difficulty.find_by(id:2).description %></button>
+	                <button class="pure-button"><%= Difficulty.find_by(id:3).description %></button>
+	            </div>
+	            <div id="length-selection" class="row">
+	                <button class="pure-button"><%= Length.find_by(id:1).description %></button>
+	                <button class="pure-button"><%= Length.find_by(id:2).description %></button>
+	                <button class="pure-button"><%= Length.find_by(id:3).description %></button>
+	            </div>
+	            <div id="date-selection" class="row">
+	            	<% @activity.trip_dates.load.each do |o| %>
+	            		<button class="pure-button">
+	            			<%= dateRange(o) %>
+	            		</button>
+	            	<% end %>
+	            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<% Activity.all.each do |a| %>
+	<%= link_to a.title, activity_path(a) %>
+<% end %>
+
+<%= link_to 'Edit Activity', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

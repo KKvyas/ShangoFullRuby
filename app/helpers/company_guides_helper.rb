@@ -1,0 +1,2 @@
+module CompanyGuidesHelper
+end

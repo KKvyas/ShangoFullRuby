@@ -1,0 +1,106 @@
+
+<% provide(:title, "Your trip") %>
+
+<div class="pure-g-r">
+	<div class="pure-u-1-8">
+		&nbsp;
+	</div>
+
+	<div class="pure-u-1-2">
+
+		<div class="row title">
+			<strong><%= @order_item.trip_date.date_range %></strong> - <%= @order_item.trip.tag_line %>.
+		</div>
+
+		<div class="row">
+			<strong># of participants:</strong>
+			<ul>
+				<li>This trip has <%= pluralize(@order_item.number_of_people, 'person', 'people') %>.
+					<% unless current_user.guide? %>
+						Add <%= link_to 'more', "#" %>.
+					<% end %>
+				</li>
+			</ul>
+		</div>
+
+		<div class="row">
+			<strong>Description:</strong>
+			<ul>
+				<li><%= @order_item.trip.description %></li>
+			</ul>
+		</div>
+
+		<div class="row">
+			<strong>Remember to bring:</strong>
+			<ul>
+				<li><%= simple_format(@order_item.trip.required_gear) %></li>
+			</ul>
+		</div>
+
+		<div class="row">
+			<strong>Gear that will be provided:</strong>
+			<ul>
+				<li><%= simple_format(@order_item.trip.supplied_gear) %></li>
+			</ul>
+		</div>
+
+		<div class="row">
+			<strong>Trip cost:</strong>
+			<ul>
+				<li>$<%= @order_item.total %>.00</li>
+			</ul>
+		</div>
+
+		<% unless current_user.guide? %>
+			<div class="row">
+				<strong>Guide:</strong>
+				<%= @order_item.trip.guide.user.full_name %>. See their profile <%= link_to 'here', guide_path(@order_item.trip.guide) %>.
+			</div>
+		<% end %>
+
+		<% if current_user.guide? %>
+			<fieldset>
+				<legend>
+					Client Details
+				</legend>
+				<div class="row">
+					<strong>Name:</strong> <%= @order_item.user.full_name %>
+				</div>
+				<div class="row">
+					<strong>Phone:</strong> <%= @order_item.user.phone %>
+				</div>
+				<div class="row">
+					<strong>Email:</strong> <%= @order_item.user.email %>
+				</div>
+				<div class="row">
+					<strong>Address:</strong> <%= @order_item.user.full_address %>
+				</div>
+				<div class="row">
+					<strong>Emergency contact information:</strong>
+					<ul>
+						<li><strong>Name: </strong><%= @order_item.user.emergency_full_name %></li>
+						<li><strong>Email: </strong><%= @order_item.user.emergency_phone %></li>
+						<li><strong>Phone: </strong><%= @order_item.user.emergency_email %></li>
+						<li><strong>Relationship: </strong><%= @order_item.user.emergency_relationship %></li>
+						<li><strong>Additional notes: </strong><%= @order_item.user.emergency_notes %></li>
+					</ul>
+				</div>
+			</fieldset>
+		<% end %>
+
+		<div class="row">
+			<%= link_to 'Back', profile_path, :class => "pure-button" %>
+		</div>
+	</div>
+
+	<div class="pure-u-1-4">
+		<div class="row">
+			<%= image_tag @order_item.trip.activity.icon.url %>
+		</div>
+	</div>
+
+	<div class="pure-u-1-8">
+		&nbsp;
+	</div>
+</div>
+

@@ -1,0 +1,87 @@
+<% provide(:title, "Create additional trip dates") %>
+
+<section class="scaffold">
+
+	<div class="pure-g-r">
+	    <div class="pure-u-1">
+	    	<div class="add-dates-header">
+				<h2><%= @trip.tag_line %></h2>
+			</div>
+			<% if @trip_date.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@trip_date.errors.count, "error") %> prohibited this trip_date from being saved:</h2>
+
+					<ul>
+					<% @trip_date.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+					</ul>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="pure-g-r">
+	    <div class="pure-u-1-2">
+	    	<div class="new-trip-date">
+	    		<h3>Select more dates to offer this trip</h3>
+				<%= form_for @trip_date do |f| %>
+							<% if @trip.trip_length_id < 3 %>
+								<div class="row">
+									<%= f.date_select :start_date, { 	:start_year => Date.today.year,
+																		:end_year => Date.today.year + 2,
+																		:order => [:month, :day, :year] 
+																	}, {
+																		:class => "pure-input-1-2"
+																		} %>
+								</div>
+							<% else %>
+								<div class="row">
+									<%= f.label :start_date, 'Start: ' %>
+									<%= f.date_select :start_date, { 	:start_year => Date.today.year,
+																		:end_year => Date.today.year + 2,
+																		:order => [:month, :day, :year] 
+																	}, {
+																		:class => "pure-input-1-2"
+																		} %>
+								</div>
+								<div class="row">
+									<%= f.label :end_date, 'End: ' %>
+									<%= f.date_select :end_date, :order => [:month, :day, :year], 
+										:html=> { :class => "pure-input-1-2" } %>
+								</div>
+							<% end %>
+
+
+						<%= f.hidden_field :trip_id, :value => @trip.id %>
+
+						<% if @trip.trip_length_id < 3 %>
+							<% @submit = 'Add date' %>
+						<% else %>
+							<% @submit = 'Add dates' %>
+						<% end %>
+
+						<%= f.submit @submit, :class => "pure-button" %> or <%= link_to 'Cancel', profile_path %>
+				<% end %>
+			</div>
+		</div>
+	    <div class="pure-u-1-2">
+	    	<div class="date-list">
+				<div>
+					<h3>Your coElevation schedule</h3>
+					<ul>
+						<% @trip.guide.trips.load.each do |t| %>
+							<% t.trip_dates.all.each do |d| %>
+								<li><%= link_to d.date_range, trip_path(d.trip) %> - <%= d.trip.tag_line %></li>
+							<% end %>
+						<% end %>
+					</ul>
+				</div>
+	    	</div>
+	    </div>
+
+	</div>
+
+
+
+</section>

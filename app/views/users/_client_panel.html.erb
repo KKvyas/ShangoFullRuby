@@ -1,0 +1,14 @@
+<h2>Your upcoming trips</h2>
+<% if @user_trips.count > 0 %>
+	<p>You have <%= pluralize(@user_trips.count, 'upcoming trip', 'upcoming trips') %>.</p>
+	<ol>
+		<% @user_trips.each do |t| %>
+			<%= render partial: "trip_snippet" %>
+		<% end %>
+	</ol>
+<% else %>
+	<p>You currently have no upcoming trips. Bummer.</p>
+	<% @guide_trips.each do |g| %>
+		<%= g.tag_line %>
+	<% end %>
+<% end %>

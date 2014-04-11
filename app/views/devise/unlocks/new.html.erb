@@ -1,0 +1,26 @@
+<% provide(:title, 'Resend unlock instructions') %>
+
+<h2 class="is-center">Resend unlock instruction</h2>
+
+<div class="pure-g-r">
+	<div class="pure-u-1-3">
+		&nbsp;
+	</div>
+
+	<div class="pure-u-1-3 is-center">
+		<%= form_for resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, :class => "pure-form"  }  do |f| %>
+			<%= devise_error_messages! %>
+			<fieldset class="pure-group">
+				<%= f.email_field :email, autofocus: true, :placeholder => "your email", :class => "pure-input-1-2"  %>
+			</fieldset>
+
+			<%= f.submit "Resend unlock instruction", :class => "pure-button pure-button-primary" %>
+		<% end %>
+	</div>
+
+	<div class="pure-u-1-3">
+		&nbsp;
+	</div>
+</div>
+
+<%= render "devise/shared/links" %>

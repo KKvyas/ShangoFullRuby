@@ -1,0 +1,49 @@
+<section class="scaffold">
+<h1>Listing order_items</h1>
+
+<%= link_to 'Create new item', new_order_item_path %>
+<p></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Company</th>
+      <th>Trip</th>
+      <th>Trip date</th>
+      <th>Number of people</th>
+      <th>Buyer ID</th>
+      <th>First Person Cost</th>
+      <th>Second Person Cost</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.order_id %></td>
+        <td><%= order_item.company_id %></td>
+        <td><%= order_item.trip_id %></td>
+        <td><%= order_item.trip_date_id %></td>
+        <td><%= order_item.number_of_people %></td>
+        <td><%= order_item.buyer_id %></td>
+        <td><%= order_item.first_person_cost %></td>
+        <td><%= order_item.second_person_cost %></td>
+
+        <td><%= link_to 'Show', order_item %></td>
+        <td><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
+        <td><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+</section>

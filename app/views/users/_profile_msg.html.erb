@@ -1,0 +1,17 @@
+<div class="pure-g-r">
+    <div class="pure-u-1">
+    	<div class="profile-msg">
+		<% if @user.profile_complete? %>
+
+		<% else %>
+			<h4>Your profile is not quite complete.</h4>
+			<p>We still need some information before you go on your trip:</p>
+			<ol>
+			<% @user.missing_attributes.each do |a| %>
+				<li><%= a %></li>
+			<% end %>
+			</ol>
+		<% end %>
+		</div>
+	</div>
+</div>

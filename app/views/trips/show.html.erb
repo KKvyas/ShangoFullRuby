@@ -1,0 +1,88 @@
+
+
+<section class="scaffold">
+	<div class="row">
+	</div>
+	<div clas="row">
+		<div class="main-3">
+			<div class="med-square">
+				<%= image_tag @trip.activity.icon.url%>
+			</div>
+			<% @trip.activity.images.order("RANDOM()").first(3).each do |i| %>
+				<div class="med-square">
+					<%= image_tag i.asset.url(:medium) %>
+				</div>
+			<% end %>
+		</div>
+		<div class="main-3">
+			<div class="row">
+				<strong>Activity:</strong>
+				<%= @trip.activity.title %>
+			</div>
+			<div class="row">
+				<strong>Guide:</strong>
+				<%= @trip.guide.user.full_name %>
+			</div>
+			<div class="row">
+				<strong>Difficulty:</strong>
+				<%= @trip.difficulty.description %>
+			</div>			
+		</div>
+
+		<div class="main-3">
+			<div class="row">
+				<strong>Location:</strong>
+
+			</div>
+			<div class="row">
+				<strong>Trip length:</strong>
+				<%= @trip.length.description %>
+			</div>
+			<div class="row">
+
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<strong>Required gear:</strong>
+		<%= @trip.required_gear %>
+	</div>
+
+	<div class="row">
+		<strong>Supplied gear:</strong>
+		<%= @trip.supplied_gear %>
+	</div>
+
+	<div class="row">
+		<strong>Special directions:</strong>
+		<%= @trip.special_directions %>
+	</div>
+
+	<div class="row">
+		<strong>Offer capacity:</strong>
+		<%= @trip.offer_capacity %>
+	</div>
+
+	<div class="row">
+		<strong>Description:</strong>
+		<%= @trip.description %>
+	</div>
+
+	<div class="row">
+		<strong>Itinerary:</strong>
+		<%= simple_format(@trip.itinerary) %>
+	</div>
+
+	<div class="row">
+		<%= link_to new_order_item_path do %>
+			<button class="pure-button">Customize this trip!</button>
+		<% end %>
+	</div>
+
+	<div class="row">
+		<%= link_to 'Add dates', new_trip_date_path %> |
+		<%= link_to 'Edit trip', edit_trip_path(@trip) %> |
+		<%= link_to 'Back', trips_path %>
+	</div>
+</section>

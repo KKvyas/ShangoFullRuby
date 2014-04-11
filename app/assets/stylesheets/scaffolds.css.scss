@@ -1,0 +1,321 @@
+body {
+	background-color: #fff;
+	color: #333;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+p, ol, ul, td {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+pre {
+	background-color: #eee;
+	padding: 10px;
+	font-size: 11px;
+}
+
+table {
+	margin-left: 10px;
+}
+
+td {
+	text-align: center;
+	padding: 3px 5px;
+}
+
+tr {
+	border-bottom: solid #bbb 1px;
+}
+
+tr:last-child {
+	border-bottom: none;
+}
+
+th {
+	padding-left: 10px;
+	padding-right: 10px;
+	border-bottom: solid #666 3px;
+}
+
+div.text-center {
+	text-align: center;
+}
+
+span.h2-comment {
+	font-size: .7em;
+	font-weight: 400;
+}
+
+section.scaffold {
+	margin: 1em;
+}
+
+section.scaffold section{
+	clear: both;
+}
+
+section.scaffold div.review {
+	margin: 0em 5px;
+	margin-top: 10px;
+	padding-top: 1em;
+}
+
+section.scaffold div.row.divider {
+	clear: both;
+	border-bottom: 3px solid #bbb;
+}
+
+section.scaffold div.actions {
+	text-align: center;
+	margin-top: 20px;
+}
+
+section.scaffold div.sidebar-right {
+	float: right;
+	width: 240px;
+	margin: 3px 5px;
+	padding: 3px 10px;
+	border: solid 1px #bbb;
+}
+
+section.scaffold div.main {
+	float: left;
+	margin: 3px 5px;
+	padding: 3px 10px;
+	border: solid 1px #bbb;
+	width: calc(100% - 280px);
+}
+
+/*          ******              */
+
+section.scaffold div.user-sidebar {
+	float: right;
+	width: 400px;
+	margin: 3px 5px;
+	padding: 3px 10px;
+	border: solid 1px #bbb;
+}
+
+section.scaffold div.user-main {
+	float: left;
+	margin: 3px 5px;
+	padding: 3px 10px;
+	width: calc(100% - 450px);
+}
+
+section.scaffold div.user-main li div {
+	float: left;
+	padding-right: 10px;
+}
+
+section.scaffold div.user-main li {
+	padding-bottom: 100px;
+}
+
+/*          ******              */
+
+section.scaffold div.pull-right {
+	float: right;
+	width: 100px;
+	text-align: right;
+}
+
+section.scaffold div.pull-left {
+	float: left;
+}
+
+section.scaffold div.row.summary {
+	min-height: 1.5em;
+	font-size: 115%;
+	border-bottom: solid 1px #bbb;
+	font-weight: 600;
+	color: #444;
+}
+
+section.scaffold div.total {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 115%;
+	font-weight: 600;
+	color: #444;
+}
+
+section.scaffold div.main {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+section.scaffold div.main input {
+	width: 300px;
+	height: 2.2em;
+	color: black;
+}
+
+section.scaffold .main-3 {
+	float: left;
+	width: 33%;
+}
+
+section.scaffold div.med-square {
+	float: left;
+	display: inline;
+	margin: .5em .5em;
+}
+
+section.scaffold div.med-square img {
+	height: 100px;
+	width: 80px;
+}
+
+section.scaffold div.title {
+	font-weight: 600;
+	color: #444;
+	font-size: 125%;
+	padding-top: 10px;
+}
+
+section.scaffold div.row {
+	margin: 15px 8px;
+}
+
+.add-dates-header {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.new-trip-date {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.inline {
+	display: inline !important;
+}
+
+.pure-button {
+	font-size: 110% !important;
+	padding-top: .7em;
+	padding-bottom: .7em;
+	border: none !important;
+	color: white !important;
+}
+
+.container-1-4 {
+	padding: 20px 30px;
+	font-weight: 200;
+}
+
+.apply-splash {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-weight: 200;
+}
+
+.apply-splash .pure-button {
+	color: white;
+}
+
+.apply-splash a:hover.pure-button {
+	text-decoration: none;
+}
+
+.guide-text-area {
+	width: 100%;
+	height: 100px;
+}
+
+.row.title {
+	font-size: 130%;
+	font-weight: 200;
+}
+
+.row {
+	letter-spacing: .02em;
+}
+
+fieldset.profile div.pure-u-1-4 {
+	margin-left: 80px;
+	margin-right: 20px;
+}
+
+fieldset.profile legend {
+	margin-left: 40px;
+	margin-top: 15px;
+}
+
+.profile-msg {
+	margin-left: 40px;
+}
+
+h3 .h3-small {
+	font-size: 75%;
+}
+
+a {
+	color: #00a;
+	text-decoration: none;
+	font-weight: 500;
+	&:visited {
+		color: #34495e;
+	}
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.pure-menu a {
+	text-decoration: none;
+	font-weight: 500;
+	&:visited {
+		color: #ffffff;
+	}
+}
+
+div {
+	&.field, &.actions {
+		margin-bottom: 10px;
+	}
+}
+
+div.container {
+	padding: 5px 5px;
+}
+
+#notice {
+	color: green;
+}
+
+.field_with_errors {
+	padding: 2px;
+	background-color: red;
+	display: table;
+}
+
+#error_explanation {
+	width: 450px;
+	border: 2px solid red;
+	padding: 7px;
+	padding-bottom: 0;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+	h2 {
+		text-align: left;
+		font-weight: bold;
+		padding: 5px 5px 5px 15px;
+		font-size: 12px;
+		margin: -7px;
+		margin-bottom: 0px;
+		background-color: #c00;
+		color: #fff;
+	}
+	ul li {
+		font-size: 12px;
+		list-style: square;
+	}
+}

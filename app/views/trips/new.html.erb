@@ -1,0 +1,9 @@
+<h1>Create a new trip</h1>
+
+<%= render 'form' %>
+
+<% if admin? %>
+	<%= link_to 'All trips', trips_path %>
+<% else %>
+	<%= link_to 'Home', profile_path %>
+<% end %>

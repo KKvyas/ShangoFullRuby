@@ -1,0 +1,47 @@
+<% provide(:title, "Guide sign up") %>
+
+<div class="row is-center">
+	<h1>Guide sign up</h1>
+</div>
+
+<section class="new-guide-splash">
+	<div class="pure-g-r">
+		<div class="pure-u-1-3">
+			&nbsp;
+		</div>
+
+		<div class="pure-u-1-3">
+			<%= form_for @guide do |f| %>
+				<% if @guide.errors.any? %>
+					<div id="error_explanation">
+						<h2><%= pluralize(@guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
+
+						<ul>
+						<% @guide.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+						</ul>
+					</div>
+				<% end %>
+				<div class="row">
+					<%= f.hidden_field :user_id, :value => current_user.id %>
+					<%= f.label :intro, 'Introduction' %><br>
+					<%= f.text_area :intro, :class => "guide-text-area", :placeholder => 'A short section to sell yourself.' %>
+				</div>
+				<div class="row">
+					<%= f.label :bio, 'Your bio and qualifications' %><br>
+					<%= f.text_area :bio, :class => "guide-text-area", :placeholder => 'A quick resume or summary of your experience and qualifications.' %>
+				</div>
+				<div class="row is-center">
+					<%= f.submit 'Create guide profile', :class => "pure-button" %>
+					<p>or <%= link_to 'Cancel', profile_path %></p>
+				</div>
+			<% end %>
+
+		</div>
+
+		<div class="pure-u-1-3">
+			&nbsp;
+		</div>
+	</div>
+</section>

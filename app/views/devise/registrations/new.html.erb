@@ -1,0 +1,33 @@
+<% provide(:title, 'Sign up') %>
+
+<h2 class="is-center">Sign up for coElevation</h2>
+
+<div class="pure-g-r">
+	<div class="pure-u-1-3">
+		&nbsp;
+	</div>
+
+	<div class="pure-u-1-3 is-center">
+		<%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { :class => "pure-form"} do |f| %>
+			<%= devise_error_messages! %>
+			<fieldset class="pure-group">
+				<%= f.text_field :first, autofocus: true, :placeholder => "first name", :class => "pure-input-1-2"  %>
+				<%= f.text_field :last, :placeholder => "last name", :class => "pure-input-1-2"  %>
+				<%= f.email_field :email, :placeholder => "your email", :class => "pure-input-1-2"  %>
+			</fieldset>
+
+			<fieldset class="pure-group">
+				<%= f.password_field :password, autocomplete: "off", :placeholder => "password", :class => "pure-input-1-2" %>
+				<%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "confirm password", :class => "pure-input-1-2" %>
+			</fieldset>
+
+			<%= f.submit "Sign up", :class => "pure-button pure-input-1-2 pure-button-primary" %>
+		<% end %>
+	</div>
+
+	<div class="pure-u-1-3">
+		&nbsp;
+	</div>
+</div>
+
+<%= render "devise/shared/links" %>

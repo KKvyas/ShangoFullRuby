@@ -1,0 +1,43 @@
+<section class="scaffold">
+	<h1>All trips</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Activity</th>
+				<th>Guide</th>
+				<th>Difficulty</th>
+				<th>Location</th>
+				<th>Offer capacity</th>
+				<th>Trip length</th>
+				<th>Description</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @trips.each do |trip| %>
+				<tr>
+					<td><%= trip.id %></td>
+					<td><%= trip.activity.title %></td>
+					<td><%= trip.guide_id %></td>
+					<td><%= trip.difficulty_id %></td>
+					<td><%= trip.location_id %></td>
+					<td><%= trip.offer_capacity %></td>
+					<td><%= trip.trip_length_id %></td>
+					<td><%= trip.description %></td>
+					<td><%= link_to 'Show', trip %></td>
+					<td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+					<td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<br>
+
+	<%= link_to 'New Trip', new_trip_path %>
+</section>

@@ -1,0 +1,174 @@
+$primary-button-color: #004687;
+$splash-container-color: #C7D0D5; //original blue color: #1f8dd6
+
+fieldset#required {
+	border: solid, 1px, black;
+}
+
+.test_outline{
+	border: solid 2px red !important;
+}
+
+/*           Grid           */
+
+.grid-centered{
+/*    max-width: 980px;*/
+    margin: 0 auto;
+    margin-bottom: 3.125em;
+}
+.grid-centered-max-width{
+    max-width: 980px;
+    margin: 0 auto;
+    margin-bottom: 3.125em;
+}
+
+.row {
+	clear: both;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.header-buffer{
+	height: 6em;
+}
+
+.small-square {
+	display: inline;
+}
+
+.small-square img {
+	height: 50px;
+	width: 50px;
+}
+
+/*          SPLASHES         */
+
+.splash-trip {
+	border-radius: 4px;
+	border: solid 3px #eee;
+	margin: 1em 1em;
+	padding: 1em 2em;
+	height: 200px !important;
+	width: 200px !important;
+}
+
+.custom-splash {
+/*	width: 80%;*/
+	margin: auto;
+}
+
+.custom-splash.desktop {
+	margin-top: 8.5em;
+}
+
+.custom-splash.tablet {
+	margin-top: 9em;
+}
+
+.custom-splash-activity {
+	border: 3px solid white;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 2em;
+	margin: 1em 1em;
+	width: 300px;
+	height: 300px;
+	text-align: center;
+}
+
+.custom-splash-activity h3 {
+	color: white;
+	font-style: normal;
+}
+
+.custom-splash-subhead {
+	text-transform: uppercase;
+	color: white;
+	font-style: bold;
+	text-align: center;
+	font-size: 1.1em;
+}
+
+.custom-splash-subhead.big {
+	font-size: 1.125em;
+}
+
+/*         OFFERINGS        */
+.offering-description {
+	margin: 1em 1em;
+	font-size: 1.125em;
+}
+
+.offering-description h3 {
+    letter-spacing: 0.1em;
+}
+
+.offering-pic {
+	margin: 1em 1em;
+	padding: 1em 2em;
+	border: solid 1px black;
+	border-radius: 3px;
+}
+
+.offering-pic h2 {
+    letter-spacing: 0.1em;
+}
+
+
+/*          RIBBON           */
+
+.ribbon {
+	padding-bottom: 3em !important;
+}
+
+/*          BUTTONS          */
+.button-large {
+	font-size: 120%;
+ }
+
+
+
+/*            DESCRIPTIONS           */
+.description-med {
+	font-size: 130%;
+	color: #555;
+	font-weight: 800;
+	letter-spacing: .02em;
+	line-height: 2.0em;
+
+}
+
+.description h3 {
+	font-size: 150%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.description {
+	padding-left: .8em;
+	padding-right: .8em;
+	padding-top: .5em;
+	padding-bottom: 1.5em;
+	margin: 1em 1em;
+	text-align: center;
+}
+
+
+/*               FOOTER               */
+.footer-container {
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-bottom: 2em;
+	padding-top: 0em;
+	color: #aaa;
+	letter-spacing: .05em;
+}
+
+
+.footer-container h1,
+.footer-container h2,
+.footer-container h3,
+.footer-container h4,
+{
+	font-size: 120%;
+}

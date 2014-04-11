@@ -1,0 +1,171 @@
+
+/* * * * * * * * * * * * * * * */
+/*                             */
+/*            Splash           */
+/*                             */
+/* * * * * * * * * * * * * * * */
+
+.one-hundred-center {
+	position: relative;
+	top: 75px;
+	width: 100%;
+//	min-width: 150px;
+	max-width: 2080px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.one-hundred-center-phone {
+	position: relative;
+	top: 54px;
+	width: 100%;
+	min-width: 100px;
+	max-width: 785px;
+	margin: 0 auto;
+//	border: solid red 2px;
+}
+
+/* * * * * * * * * * * * * * * */
+/*                             */
+/*      Splash Overlay Tags    */
+/*                             */
+/* * * * * * * * * * * * * * * */
+
+.tag {
+	position: absolute;
+	z-index: 5;
+
+	border-radius: 5px;
+	border: solid white 5px;
+
+	background-color: none;
+
+
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	color: white;
+	font-weight: 600;
+	font-size: 160%;
+	text-align: center;
+}
+
+.tag.downstream {
+	max-width: 300px;
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.tag.pack-rest {
+	top: 20%;
+	left: 20%;
+}
+
+.tag.mountain-cast {
+	top: 32%;
+	margin-left: 50%;
+}
+
+.tag.trekking {
+	top: 20%;
+	left: 60%;
+}
+
+.tag.at-belay {
+	top: 39%;
+	left: 68%;
+}
+
+.tag-phone {
+
+	position: absolute;
+	z-index: 5;
+	border-radius: 5px;
+	border: solid white 2px;
+	background-color: none;
+	padding: 10px;
+	margin: 20px;
+	color: white;
+	font-weight: 400;
+	font-size: 130%;
+	text-align: center;
+}
+
+.tag-phone.words {
+    position: absolute;
+    top: 80%;
+    left: 50px;
+    right: 50px;
+    margin: auto;
+}
+
+/* * * * * * * * * * * * * * * */
+/*                             */
+/*        Mailchimp Form       */
+/*                             */
+/* * * * * * * * * * * * * * * */
+
+ .mc-button-div-manhandle {
+ 	border: none !important;
+ 	border-radius: 5px !important;
+ 	font-size: 120% !important;
+ }
+
+ .mc-radio-div-manhandle {
+ 	display: none !important;
+ }
+
+.content.just-above-footer {
+	margin-top: 2em;
+	margin-bottom: 2.5em;
+}
+
+
+
+/* * * * * * * * * * * * * * * */
+/*                             */
+/*        QUALITY RIBBON       */
+/*                             */
+/* * * * * * * * * * * * * * * */
+
+.ribbon {
+    background: #2d3e50;
+    color: #aaa;
+}
+
+.ribbon p {
+	font-size: 120%;
+	letter-spacing: .08em;
+	line-height: 2em;
+	font-weight: 800;
+}
+
+
+/* * * * * * * * * * * * * * * */
+/*                             */
+/*          COMING SOON        */
+/*                             */
+/* * * * * * * * * * * * * * * */
+
+.coming-soon {
+	margin-top: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-color: #ddd;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+}
+
+.coming-soon h1,
+.coming-soon h2,
+.coming-soon h3,
+.coming-soon h4 {
+	text-align: center;
+}
+
+

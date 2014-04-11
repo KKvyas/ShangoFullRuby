@@ -1,0 +1,17 @@
+<p>
+  <strong>Trip:</strong>
+  <%= @trip_date.trip_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @trip_date.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @trip_date.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_trip_date_path(@trip_date) %> |
+<%= link_to 'Back', trip_dates_path %>

@@ -1,0 +1,72 @@
+<% provide(:title, "All cart items") %>
+
+<section class="scaffold">
+	<h1>Cart</h1>
+
+	<% if @order_items.count > 0 %>
+	<table>
+		<thead>
+			<tr>
+				<th>Dates</th>
+				<th>Length</th>
+				<th>Activity</th>
+				<th>Guide</th>
+				<th>Company</th>
+				<th># of ppl</th>
+				<th>Cost</th>
+				<th>Total</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @order_items.each do |i| %>
+				<tr>       
+					<td><%= i.trip_date.date_range %></td>
+					<td><%= i.trip.length.description %></td>
+					<td><%= i.trip.activity.title %></td>
+					<td><%= i.trip.guide.user.full_name %></td> 
+					<td><%= i.trip.company.name %></td>
+					<td><%= i.number_of_people %></td>
+					<td><%= i.first_person_cost.to_s + "/1 , " + i.second_person_cost.to_s + "/2nd+" %></td>
+					<td></td>
+					<td>$<%= i.total %>.00</td>
+					<td><%= link_to 'Show', order_item_path(i) %></td>
+					<td><%= link_to 'Delete', order_item_path(i), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<% end %>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>Total</td>
+				<td>$<%= current_user.services_total %>.00</td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="row">
+		<div class="text-center">
+			<%= link_to new_order_path do %>
+				<button class="pure-button">Checkout</button>
+			<% end %>
+		</div>
+	</div>
+
+	<% else %>
+		<div class="row">
+			No items currently in anyone's cart.
+		</div>
+		<div class="row">
+			<%= link_to 'Browse for trips', home_path %>
+		</div>
+	<% end %>
+</section>

@@ -1,0 +1,11 @@
+<h2>Your upcoming trips</h2>
+<% if @guide_trips.count > 0 %>
+	<p>You are booked for <%= pluralize(@user_trips.count, 'upcoming trip', 'upcoming trips') %>.</p>
+	<ol>
+		<% @guide_trips.each do |t| %>
+			<li><%= link_to t.trip_date.date_range, order_item_path(t) %></li>
+		<% end %>
+	</ol>
+<% else %>
+	<p>No trips currently booked. Post more trips <%= link_to 'here', new_trip_path %>.</p>
+<% end %>

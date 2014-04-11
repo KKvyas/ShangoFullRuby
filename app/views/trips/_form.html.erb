@@ -1,0 +1,82 @@
+<section class="scaffold">
+<%= form_for @trip do |f| %>
+	<% if @trip.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+			<ul>
+			<% @trip.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		Guided: <%= current_user.full_name + ". " + current_user.company.name %>
+	</div>
+
+	<div class="field">
+		<%= f.collection_select :activity_id, @activities, :id, :title, :prompt => "Select an Activity" %>
+	</div>
+
+	<div class="field">
+		<%= f.hidden_field :guide_id, :value => current_user.id %>
+		<%= f.hidden_field :company_id, :value => current_user.company.id %>
+	</div>
+
+	<div class="field">
+		<%= f.collection_select :difficulty_id, @difficulties, :id, :description, :prompt => "Select a difficulty" %>
+	</div>
+	<div class="field">
+		<%= f.collection_select :location_id, @locations, :id, :description, :prompt => "Select a location" %>
+	</div>
+	<div class="field">
+		<%= f.collection_select :trip_length_id, @lengths, :id, :description, :prompt => "Select a trip length" %>
+	</div>
+	<div class="field">
+		<%= f.label :first_person_cost %><br>
+		<%= f.number_field :first_person_cost %>
+	</div>
+	<div class="field">
+		<%= f.label :second_person_cost %><br>
+		<%= f.number_field :second_person_cost %>
+	</div>
+	<div class="field">
+		<%= f.label :offer_capacity, 'Maximum number of people' %><br>
+		<%= f.number_field :offer_capacity %>
+	</div>
+	<div class="field">
+		<%= f.label :latitude %><br>
+		<%= f.text_field :latitude %>
+	</div>
+	<div class="field">
+		<%= f.label :longitude %><br>
+		<%= f.text_field :longitude %>
+	</div>
+	<div class="field">
+		<%= f.label :required_gear %><br>
+		<%= f.text_area :required_gear %>
+	</div>
+	<div class="field">
+		<%= f.label :supplied_gear %><br>
+		<%= f.text_area :supplied_gear %>
+	</div>
+	<div class="field">
+		<%= f.label :special_directions %><br>
+		<%= f.text_area :special_directions %>
+	</div>
+
+	<div class="field">
+		<%= f.label :description %><br>
+		<%= f.text_area :description %>
+	</div>
+	<div class="field">
+		<%= f.label :itinerary %><br>
+		<%= f.text_area :itinerary %>
+	</div>
+	<div class="actions">
+		<%= f.submit 'Submit', :class => "pure-button" %>
+	</div>
+<% end %>
+</section>

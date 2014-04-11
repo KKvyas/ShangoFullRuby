@@ -1,0 +1,51 @@
+<!-- <h2>Sign in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <div><%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+ -->
+
+
+<% provide(:title, 'Sign in') %>
+
+<h2 class="is-center">Sign in</h2>
+
+<div class="pure-g-r">
+	<div class="pure-u-1-3">
+		&nbsp;
+	</div>
+
+	<div class="pure-u-1-3 is-center">
+		<%= form_for resource, as: resource_name, url: session_path(resource_name), html: { :class => "pure-form"} do |f| %>
+			<%= devise_error_messages! %>
+			<fieldset class="pure-group">
+				<%= f.email_field :email, autofocus: true, :placeholder => "your email", :class => "pure-input-1-2"  %>
+			</fieldset>
+
+			<fieldset class="pure-group">
+				<%= f.password_field :password, autocomplete: "off",
+					:placeholder => "password", :class => "pure-input-1-2" %>
+			</fieldset>
+
+			<%= f.submit "Sign in", :class => "pure-button pure-button-primary" %>
+		<% end %>
+	</div>
+
+	<div class="pure-u-1-3">
+		&nbsp;
+	</div>
+</div>
+
+<%= render "devise/shared/links" %>

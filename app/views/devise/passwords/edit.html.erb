@@ -1,0 +1,31 @@
+
+<% provide(:title, 'Change your password') %>
+
+<h2 class="is-center">Change your password</h2>
+
+<div class="pure-g-r">
+	<div class="pure-u-1-3">
+		&nbsp;
+	</div>
+
+	<div class="pure-u-1-3 is-center">
+		<%= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put, :class => "pure-form"  } do |f| %>
+			<%= devise_error_messages! %>
+			<%= f.hidden_field :reset_password_token %>
+
+			<fieldset class="pure-group">
+				<%= f.password_field :password, autofocus: true, autocomplete: "off", :placeholder => "new password" %>
+				<%= f.password_field :password_confirmation, autocomplete: "off" %>
+			</fieldset>
+
+
+			<%= f.submit "Change my password", :class => "pure-button pure-button-primary" %>
+		<% end %>
+	</div>
+
+	<div class="pure-u-1-3">
+		&nbsp;
+	</div>
+</div>
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,45 @@
+<% provide(:title, "Connect with your companies") %>
+
+<section class="">
+	<div class="pure-g-r">
+		<div class="pure-u-1-3">
+			&nbsp;
+		</div>
+
+		<div class="pure-u-1-3">
+			<h1 class="is-center">Create a new connection</h1>
+			<%= form_for(@company_guide) do |f| %>
+				<div class="row">
+					<% if @company_guide.errors.any? %>
+						<div id="error_explanation">
+							<h2><%= pluralize(@company_guide.errors.count, "error") %> prohibited this company_guide from being saved:</h2>
+
+							<ul>
+							<% @company_guide.errors.full_messages.each do |msg| %>
+								<li><%= msg %></li>
+							<% end %>
+							</ul>
+						</div>
+					<% end %>
+				</div>
+
+				<div class="row">
+					<p>Select a company you work for to request to be added to their coElevation account.</p>
+					<p>Please only select companies you are already hired by.</p>
+				</div>
+				<div class="row">
+					<%= f.collection_select :company_id, @companies, :id, :name, :prompt => "Select a company" %>
+					<%= f.hidden_field :guide_id, :value => current_user.id %>
+				</div>
+
+				<div class="row is-center">
+					<%= f.submit 'Send request', :class => "pure-button" %>
+					<p>or <%= link_to 'cancel', profile_path %>.</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="pure-u-1-3">
+			&nbsp;
+		</div>
+	</div>
+</section>

@@ -1,0 +1,31 @@
+<section class="scaffold">
+
+<h1>Listing lengths</h1>
+<p><%= link_to '+ New length', new_length_path %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lengths.each do |length| %>
+      <tr>
+        <td><%= length.description %></td>
+        <td><%= link_to 'Show', length %></td>
+        <td><%= link_to 'Edit', edit_length_path(length) %></td>
+        <td><%= link_to 'Destroy', length, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+</section>
